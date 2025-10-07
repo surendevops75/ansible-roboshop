@@ -1,0 +1,25 @@
+- name: create ec2 and r53
+  hosts: local
+  connection: local
+  vars:
+    ami_id: "ami-09c813fb71547fc4f"
+    sg_id: "sg-023e95f9ad8b4897e"
+    zone_id: "Z10042263JCJ5ZTK2AT9J"
+    domain_name: "surendevops.fun"
+    instances:
+    - mongodb
+  tasks:
+  - name: create ec2 instance
+    amazon.aws.ec2_instance:
+      name: "{{ item }}"
+      instance_type: t3_micro
+      security_group: "{{ sg_Id }}"
+      image_id: "{{ ami_id }}"
+      tags:
+        Name: "{{ item }}"
+    loop: "{{ instances }}"
+    register: ec2_output
+
+  - name: print the ec2_output
+    ansible.builtin.debug:
+      msg: "{{ ec2_output }}"
