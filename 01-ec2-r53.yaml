@@ -6,11 +6,12 @@
     sg_id: "sg-023e95f9ad8b4897e"
     zone_id: "Z10042263JCJ5ZTK2AT9J"
     domain_name: "surendevops.fun"
-    instances:
-    - mongodb
-    - redis
-    - mysql
-    - rabbitmq
+    # we can pass instances through command line using -e
+    # instances: 
+    # - mongodb
+    # - redis
+    # - mysql
+    # - rabbitmq
   tasks:
   - name: create ec2 instance
     amazon.aws.ec2_instance:
