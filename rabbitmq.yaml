@@ -2,7 +2,7 @@
   hosts: rabbitmq
   become: yes
   tasks:
-  - name: copy mongorepo
+  - name: copy rabbitmqrepo
     ansible.builtin.copy:
       src: rabbitmq.repo
       dest: /etc/yum.repos.d/rabbitmq.repo
