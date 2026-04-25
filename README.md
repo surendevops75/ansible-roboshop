@@ -151,7 +151,8 @@ ansible-playbook -i inventory.ini mysql.yaml
 
 ## 👨‍💻 Author
 
-Surendra 
+Surendra.
+
 DevOps Engineer
 
 ---
